@@ -8,5 +8,18 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PriyaDoIT/friendfinder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PriyaDoIT/friendfinder/issues"
+  },
+  "homepage": "https://github.com/PriyaDoIT/friendfinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
 }
