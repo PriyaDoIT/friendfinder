@@ -15,46 +15,50 @@
 
 <body>
     <div class="container">
-            <form class="needs-validation" novalidate>
+        <form class="needs-validation" novalidate>
 
-        <fieldset>
-          <h1>Survey Questions</h1>
-          <hr>
-          <h3>About You</h3>
-        
-          <div class="form-group">
-            <label for="name">Name (Required)</label>
-            <input type="text" class="form-control name" aria-describedby="name" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="photo">Link to Photo Image (Required)</label>
-            <input type="text" class="form-control photo" aria-describedby="name" placeholder="" required>
-          </div>
-          <hr>  
-          <h3><strong>Question 1</strong></h3>
-    <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-    <select class="chosen-select" id="q1">
-      <option value=""></option>
-      <option value="1">1 (Strongly Disagree)</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5 (Strongly Agree)</option>
-    </select>
+            <fieldset>
+                <h1>Survey Questions</h1>
+                <hr>
+                <h3>About You</h3>
 
-    <h3><strong>Question 2</strong></h3>
-    <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
-    <select class="chosen-select" id="q2">
-      <option value=""></option>
-      <option value="1">1 (Strongly Disagree)</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5 (Strongly Agree)</option>
-    </select>
+                <div class="form-group">
+                    <label for="name">Name (Required)</label>
+                    <input type="text" class="form-control name" aria-describedby="name" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Link to Photo Image (Required)</label>
+                    <input type="text" class="form-control photo" aria-describedby="name" placeholder="" required>
+                </div>
+                <hr>
+                <h3>
+                    <strong>Question 1</strong>
+                </h3>
+                <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+                <select class="chosen-select" id="q1">
+                    <option value=""></option>
+                    <option value='1'>1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+
+                <h3>
+                    <strong>Question 2</strong>
+                </h3>
+                <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+                <select class="chosen-select" id="q2">
+                    <option value=""></option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
 
 
-    <!-- <h3><strong>Question 3</strong></h3>
+                <!-- <h3><strong>Question 3</strong></h3>
     <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
     <select class="chosen-select" id="q3">
       <option value=""></option>
@@ -145,42 +149,42 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select> -->
-          
-          </fieldset>
-          <br>
-          <br>
-          <!-- Button trigger modal -->
-<button type="submit" class="submit btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-Submit      </button>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title" id="exampleModalLabel">Best Match</h2>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+
+            </fieldset>
+            <br>
+            <br>
+            <!-- Button trigger modal -->
+            <button type="submit" class="submit btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Submit </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalLabel">Best Match</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-       
-      </form>
-      
-      <hr>
+
+        </form>
+
+        <hr>
 
     </div>
-</div>
     </div>
-    
+    </div>
+
     <footer class="footer">
         <div class="container">
             <p>
@@ -196,7 +200,7 @@ Submit      </button>
 
     $(".submit").on("click", function (event) {
         event.preventDefault();
-    
+
         // Here we grab the form elements
         var newFriend = {
             routeName: name.replace(/\s+/g, "").toLowerCase(),
@@ -214,6 +218,7 @@ Submit      </button>
                 console.log(data);
             });
 
+//finally, display match
         $("#myModal").modal();
 
 
