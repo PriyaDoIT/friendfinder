@@ -22,37 +22,31 @@ module.exports = function (app) {
         var findLowestArray = [];
 
         
-
+        //for each friend create an a new array which holds the difference between scores
         for (var f = 0; f < friendsData.length; f++) {
-            var subArray = [];
+         var subArray =[];
+            //for each index in the friend array
             for (var s = 0; s < friendsData[f].scores.length; s++) {
-                for (var n = 0; n < newFScore[n].length; n++) {
-                    subArray.push(parseInt(friendsData[f].scores[s]) - parseInt(newFScore[n]));
-
-                    
+                    subArray.push(parseInt(friendsData[f].scores[s]) - parseInt(newFScore[s]));                  
                 }
+                console.log(subArray)
             }
-            diffArray.push(subArray);
-            
-        }
-        console.log(diffArray)
-        // console.log(friendsData[0].scores.length)
-        // console.log(newFriend)
-        // console.log(parseInt(newFriend.scores[0]) === 4);
-        // console.log(parseInt(friendsData[0].scores[0]) == 5)
-        //push this object to the friendsArray via friendsData
-        friendsData.push(newFriend);
+            // diffArray.push(subArray)  
+            friendsData.push(newFriend);
+        })
 
-        res.json(newFriend);
+        
+
+        // res.json(newFriend);
 
 
         // for(var i=0; i<friendsData.length -1 ;i++){
         //     var diffArray =[];
 
         //     for (var x=0; x < newFriend.scores[x]; x++)
-
+        
         // }
-    });
+    };
 // console.log(friendsData[0].scores.length)
 // 1. Take newFriend.scores[x] and compare for each friendArray.scores[y]; subtract the two values
 //         a. parseInt because when .val it saves to an array as a string
@@ -61,4 +55,3 @@ module.exports = function (app) {
 //         d. take this position of the lowest number and use it to reference the correct position in the friendsArray
 
 // 2. display photo and name of the match
-}
