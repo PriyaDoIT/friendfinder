@@ -17,41 +17,30 @@ module.exports = function (app) {
     app.post("/api/friends", function (req, res) {
         //array of scores for new friend
         var newFriend = req.body
-        var newFScore = req.body.scores;
-        var diffArray = []
-        var findLowestArray = [];
+        var findLowest = [];
 
-        
-        //for each friend create an a new array which holds the difference between scores
+        //for each friend create a new array which holds the difference between scores
         for (var f = 0; f < friendsData.length; f++) {
-         var subArray =[];
+            var diffArray = []
             //for each index in the friend array
             for (var s = 0; s < friendsData[f].scores.length; s++) {
-                    subArray.push(parseInt(friendsData[f].scores[s]) - parseInt(newFScore[s]));                  
-                }
-                console.log(subArray)
+                diffArray.push(Math.abs(parseInt(friendsData[f].scores[s]) - parseInt(newFriend.scores[s])));
             }
-            // diffArray.push(subArray)  
-            friendsData.push(newFriend);
-        })
+            //sum all items in each array and push to a consolidated array, findLowest Array
+            findLowest.push(diffArray.reduce((accumulator, currentValue) => accumulator + currentValue));
+        }
 
-        
+        //push newFriend to friendsArray
+        friendsData.push(newFriend);
+        //find position of the smallest number in the findLowest array, this position will be used to match friend
+        var i = findLowest.indexOf(Math.min.apply(null, findLowest))
 
-        // res.json(newFriend);
+        //Match!
+        var match = {
+            name: friendsData[i].name,
+            photo: friendsData[i].photo
+        }
+        console.log(match.photo)
 
-
-        // for(var i=0; i<friendsData.length -1 ;i++){
-        //     var diffArray =[];
-
-        //     for (var x=0; x < newFriend.scores[x]; x++)
-        
-        // }
-    };
-// console.log(friendsData[0].scores.length)
-// 1. Take newFriend.scores[x] and compare for each friendArray.scores[y]; subtract the two values
-//         a. parseInt because when .val it saves to an array as a string
-//         b. sum all items in each array in diffArray and take the absolute value
-//         c. find the position of the lowest number in the diffArray, store into a variable
-//         d. take this position of the lowest number and use it to reference the correct position in the friendsArray
-
-// 2. display photo and name of the match
+    })
+};
