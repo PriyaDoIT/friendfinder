@@ -222,11 +222,18 @@
                 , $("#q9").val(), $("#q10").val()]
         }
 
-        if (newFriend.name === "" || newFriend.photo === "") {
+var allscores = true;
+
+        for (y = 0; y < newFriend.scores.length; y++) {
+            if (newFriend.scores[y] === "") {
+                allscores = false;
+            }
+        }
+        if (newFriend.name === "" || newFriend.photo === "" || allscores === false) {
             $(".modal-body").html(`<h1 class ="text-center">Please answer all required fields and try again.</h1>`);
             $("#myModal").modal();
-
         }
+
         else {
             // display match
             var currentURL = window.location.origin;
@@ -236,13 +243,13 @@
 
                 $("#myModal").modal();
 
-    //clear form trick
-    $('.survey').each(function () {
+                //clear form trick
+                $('.survey').each(function () {
                     this.reset();
                 });
 
             });
-           
+
 
         }
     });
