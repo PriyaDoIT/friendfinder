@@ -72,7 +72,7 @@
                 </select>
 
 
-               <h3>
+                <h3>
                     <strong>Question 4</strong>
                 </h3>
                 <h4>You rarely do something just out of sheer curiosity.</h4>
@@ -144,7 +144,8 @@
                     <strong>Question 9</strong>
                 </h3>
                 <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or
-                    not.</h4>
+                    not.
+                </h4>
                 <select class="chosen-select" id="q9">
                     <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
@@ -165,7 +166,7 @@
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5 (Strongly Agree)</option>
-                </select> 
+                </select>
 
             </fieldset>
             <br>
@@ -178,10 +179,6 @@
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title text-center" id="exampleModalLabel">Best Match</h2>
-
-                        </div>
                         <div class="modal-body">
                         </div>
                         <div class="modal-footer">
@@ -210,37 +207,44 @@
 </body>
 
 </html>
-<script type="text/javascript">
+
+<script>
+
 
     $(".submit").on("click", function (event) {
         event.preventDefault();
 
-        // Here we grab the form elements
         var newFriend = {
             name: $(".name").val().trim(),
             photo: $(".photo").val().trim(),
             scores: [$("#q1").val(), $("#q2").val(), $("#q3").val()
-            , $("#q4").val(), $("#q5").val(),$("#q6").val(), $("#q7").val(), $("#q8").val()
-            , $("#q9").val(), $("#q10").val()]
+                , $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val()
+                , $("#q9").val(), $("#q10").val()]
         }
 
+        if (newFriend.name === "" || newFriend.photo === "") {
+            $(".modal-body").html(`<h1 class ="text-center">Please answer all required fields and try again.</h1>`);
+            $("#myModal").modal();
 
-        //finally, display match
-        var currentURL = window.location.origin;
-        $.post(currentURL + "/api/friends", newFriend, function (data) {
-            //Grab the result from the AJAX post so that the best match's name and photo are displayed.
-            $(".modal-body").html(data);
+        }
+        else {
+            // display match
+            var currentURL = window.location.origin;
+            $.post(currentURL + "/api/friends", newFriend, function (data) {
+                //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                $(".modal-body").html(data);
 
-            //clear form trick
-            $('.survey').each(function () {
-                this.reset();
+                $("#myModal").modal();
+
+    //clear form trick
+    $('.survey').each(function () {
+                    this.reset();
+                });
+
             });
+           
 
-        });
-        // Show the modal with the best match
-        $("#myModal").modal();
-
-
+        }
     });
 
 </script>

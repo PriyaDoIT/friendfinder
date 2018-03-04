@@ -36,8 +36,10 @@ module.exports = function (app) {
             name: friendsData[i].name,
             photo: friendsData[i].photo
         }
-        res.send(`<h1 class ="text-center">${match.name}</h1><br></br>
+        res.send(`<h1 class ="text-center">Meet your match: <p>${match.name}</p></h1><br></br>
         <img src=${match.photo} class="img-responsive">`)
+
+        
 
     })
 };
