@@ -7,8 +7,8 @@
 
 var friendsArray = [
     {
-        name: "Mike Smith",
-        photo: "https://images.pexels.com/photos/428339/pexels-photo-428339.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb",
+        name: "Jean-Ralphio Saperstein",
+        photo: "https://thegameofnerds.files.wordpress.com/2017/11/20171103_161422.jpg?w=730",
         scores: [
             "5",
             "2",
@@ -24,8 +24,8 @@ var friendsArray = [
 
     },
     {
-        name: "Sarah Dru",
-        photo: "https://images.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb",
+        name: "Tom Haverford",
+        photo: "https://1.bp.blogspot.com/-clS85qwX9oM/Vzsomrg1-VI/AAAAAAAAdLs/WKGcaHtCoRIVRLclqI8kFcAHK8crNj0fACKgB/s1600/635926603300435459-1921418490_imrs.jpeg",
         scores: [
             "4",
             "4",
@@ -40,8 +40,8 @@ var friendsArray = [
         ]
     },
     {
-        name: "Michael Scott",
-        photo: "https://images.pexels.com/photos/415326/pexels-photo-415326.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb",
+        name: "April Ludgate",
+        photo: "https://vignette.wikia.nocookie.net/characters/images/6/6f/April_Ludgate.JPG/revision/latest?cb=20170707011218",
         scores: [
             "4",
             "4",
