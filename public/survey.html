@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation survey" novalidate>
 
             <fieldset>
                 <h1>Survey Questions</h1>
@@ -162,13 +162,10 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2 class="modal-title" id="exampleModalLabel">Best Match</h2>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <h2 class="modal-title text-center" id="exampleModalLabel">Best Match</h2>
+                         
                         </div>
                         <div class="modal-body">
-                            ...
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -203,7 +200,6 @@
 
         // Here we grab the form elements
         var newFriend = {
-            routeName: name.replace(/\s+/g, "").toLowerCase(),
             name: $(".name").val().trim(),
             photo: $(".photo").val().trim(),
             scores: [$("#q1").val(), $("#q2").val()]
@@ -211,14 +207,21 @@
             // $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
 
         }
-        console.log(newFriend);
 
-        $.post("/api/friends", newFriend)
-            .then(function (data) {
-                console.log(data);
+
+        //finally, display match
+        var currentURL = window.location.origin;
+        $.post(currentURL + "/api/friends", newFriend, function (data) {
+            //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+            $(".modal-body").html(data);
+
+        //clear form trick
+            $('.survey').each(function () {
+                this.reset();
             });
 
-//finally, display match
+        });
+        // Show the modal with the best match
         $("#myModal").modal();
 
 

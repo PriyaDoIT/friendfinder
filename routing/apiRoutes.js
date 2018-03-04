@@ -8,10 +8,6 @@ module.exports = function (app) {
     app.get("/api/friends", function (req, res) {
         res.json(friendsData)
     });
-    //api get request to view the difference between current user and friends 'database' (in this case it is an array)
-    app.get("/api/differences", function (req, res) {
-        res.json(differencesData)
-    });
 
     //POST requests based on user input from form
     app.post("/api/friends", function (req, res) {
@@ -40,7 +36,8 @@ module.exports = function (app) {
             name: friendsData[i].name,
             photo: friendsData[i].photo
         }
-        console.log(match.photo)
+        res.send(`<h1 class ="text-center">${match.name}</h1><br></br>
+        <img src=${match.photo} class="img-responsive">`)
 
     })
 };
